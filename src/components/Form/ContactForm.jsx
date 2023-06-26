@@ -17,8 +17,6 @@ const ContactForm = () => {
     duplicateName
       ? alert(contactInfo.name + ' is already in your contacts')
       : dispatch(addContact(contactInfo));
-
-    console.log(stateContacts);
     reset({
       name: '',
       phone: '',

@@ -1,20 +1,22 @@
+import { Notify } from 'notiflix';
+
 export const fetchHandlePending = state => {
-  state.contactsReducer.contacts.isLoading = true;
+  state.contacts.isLoading = true;
 };
 
 export const fetchHandleFulfilled = (state, { payload }) => {
-  state.contactsReducer.contacts.isLoading = false;
-  state.contactsReducer.contacts.error = null;
-  state.contactsReducer.contacts.items = payload;
+  state.contacts.isLoading = false;
+  state.contacts.error = null;
+  state.contacts.items = payload;
 };
 
 export const fetchHandleRejected = (state, { payload }) => {
-  state.contactsReducer.contacts.isLoading = false;
-  state.contactsReducer.contacts.error = payload;
+  state.contacts.isLoading = false;
+  state.contacts.error = payload;
 };
 
 export const contactHandleAdd = (state, { payload }) => {
-  state.contactsReducer.contacts.items.push({
+  state.contacts.items.push({
     id: payload.id,
     name: payload.name,
     phone: payload.phone,
@@ -25,14 +27,30 @@ export const contactHandleDelete = (state, { payload }) => {
   const filterValueId = state.contacts.items.findIndex(
     contact => contact.id === payload.id
   );
-  state.contactsReducer.contacts.items.splice(filterValueId, 1);
+  state.contacts.items.splice(filterValueId, 1);
 };
 
 export const filterHandleUpdate = (state, { payload }) => {
-  state.contactsReducer.filter = payload;
+  state.filter = payload;
 };
 
-export const userHandleSignUp = (state, { payload }) => {
-  state.userReducer.token = payload;
-  console.log(state.userReducer.token)
+export const userHandleSignUpFulfilled = () => {
+  Notify.success('You have been registered and can now Log in to your account');
 };
+
+export const userHandleSignUpRejected = () => {
+  Notify.failure('Oops, this email is already registered, try Log In!');
+};
+
+export const userHandleLogIn = (state, { payload }) => {
+  state.token = payload.token;
+  state.isLoggedIn = true;
+  Notify.success('WELCOME!');
+  console.log(state.token);
+};
+
+export const userHandleLogInRejected = () => {
+  Notify.failure('Oops, your email or password is incorrect, try again!');
+};
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDk5YjVjODk5MzY0ZDAwMTRlNmJlZDAiLCJpYXQiOjE2ODc3OTUxNDR9.-z0lkmfpdI4re7fwx_uTBZh44tucPO6wHEHBpqSJjFc

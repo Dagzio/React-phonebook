@@ -1,13 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { contactsInitialState } from './initialState';
-import {userSignUp} from './userOperations';
-import { userHandleSignUp } from './handleFunctions';
+import { userLogIn, userSignUp } from './userOperations';
+import {
+  userHandleLogIn,
+  userHandleLogInRejected,
+  userHandleSignUpFulfilled,
+  userHandleSignUpRejected,
+} from './handleFunctions';
+import userInitialState from './userInitialState';
 
 const userSlice = createSlice({
-  name: 'user',
-  initialState: contactsInitialState,
+  name: 'users',
+  initialState: userInitialState,
   extraReducers: builder => {
-    builder.addCase(userSignUp.fulfilled, userHandleSignUp);
+    builder
+      .addCase(userSignUp.fulfilled, userHandleSignUpFulfilled)
+      .addCase(userSignUp.rejected, userHandleSignUpRejected)
+      .addCase(userLogIn.fulfilled, userHandleLogIn)
+      .addCase(userLogIn.rejected, userHandleLogInRejected);
   },
 });
 

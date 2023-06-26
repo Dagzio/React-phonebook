@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import {userSignUp} from 'redux/userOperations';
+import { userSignUp } from 'redux/userOperations';
 
 const RegisterPage = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -14,12 +14,12 @@ const RegisterPage = () => {
     setState(e.target.value);
   };
 
-  const onUserFormSubmit =() => {
-    dispatch(userSignUp({name, email, password}))
+  const onUserFormSubmit = () => {
+    dispatch(userSignUp({ name, email, password }));
     reset({
       name: '',
       email: '',
-      password:'',
+      password: '',
     });
   };
 
@@ -34,7 +34,6 @@ const RegisterPage = () => {
           value={name}
           id="userName"
           placeholder="For example: Jacob Mercer"
-          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         ></input>
@@ -64,7 +63,7 @@ const RegisterPage = () => {
         ></input>
       </label>
 
-      <button type='submit'>Sign Up</button>
+      <button type="submit">Sign Up</button>
     </form>
   );
 };

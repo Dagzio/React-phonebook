@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { contactsInitialState } from './initialState';
+import { contactsInitialState } from './contactsInitialState';
 import { addContact, deleteContact, fetchContacts } from './contactOperations';
 import { onUpdateFilterValue } from 'components/Filter/Filter';
 import {
