@@ -33,5 +33,6 @@ export const filterHandleUpdate = (state, { payload }) => {
 };
 
 export const userHandleSignUp = (state, { payload }) => {
-  state.userReducer.access_token = payload.access_token;
+  state.userReducer.token = payload;
+  console.log(state.userReducer.token)
 };

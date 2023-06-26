@@ -5,5 +5,5 @@ export const contactsInitialState = {
     error: null,
   },
   filter: '',
-  access_token: '',
+  token: '',
 };
