@@ -46,11 +46,12 @@ export const userHandleLogIn = (state, { payload }) => {
   state.token = payload.token;
   state.isLoggedIn = true;
   Notify.success('WELCOME!');
-  console.log(state.token);
 };
 
 export const userHandleLogInRejected = () => {
   Notify.failure('Oops, your email or password is incorrect, try again!');
 };
+
+// СДЕЛАТЬ ЗАПРОС НА CURRENT USER ПОСЛЕ ЛОГИНА ( ЭТО ДЛЯ ВЫВОДА ИМЕНИ HELLO, LOGOUT)
 
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDk5YjVjODk5MzY0ZDAwMTRlNmJlZDAiLCJpYXQiOjE2ODc3OTUxNDR9.-z0lkmfpdI4re7fwx_uTBZh44tucPO6wHEHBpqSJjFc

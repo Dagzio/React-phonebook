@@ -5,7 +5,7 @@ import { selectIsLoggedIn } from 'redux/selectors';
 
 const Header = () => {
   const stateIsLoggedIn = useSelector(selectIsLoggedIn);
-  console.log(stateIsLoggedIn);
+
   return (
     <Headerbar>
       <HeaderLink to={'/'}>Home</HeaderLink>
