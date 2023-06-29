@@ -53,7 +53,13 @@ export const userHandleLogInRejected = () => {
 };
 
 export const userHandleGetUserFulfilled = (state, { payload }) => {
-  state.currentUser = { ...payload };
+  state.currentUser = { ...payload.data };
   state.isLoading = false;
 };
+
+export const userLogOutFulfilled = state => {
+  state.isLoggedIn = false;
+  state.token='';
+  state.currentUser=null;
+}
 // СДЕЛАТЬ ЗАПРОС НА CURRENT USER ПОСЛЕ ЛОГИНА ( ЭТО ДЛЯ ВЫВОДА ИМЕНИ HELLO, LOGOUT)

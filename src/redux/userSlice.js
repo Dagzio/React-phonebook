@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCurrentUser, userLogIn, userSignUp } from './userOperations';
+import { getCurrentUser, userLogIn, userLogOut, userSignUp } from './userOperations';
 import {
   userHandleLogInFulfilled,
   userHandleLogInRejected,
   userHandleSignUpFulfilled,
   userHandleSignUpRejected,
   userHandleGetUserFulfilled,
+  userLogOutFulfilled,
 } from './handleFunctions';
 import userInitialState from './userInitialState';
 
@@ -18,7 +19,8 @@ const userSlice = createSlice({
       .addCase(userSignUp.rejected, userHandleSignUpRejected)
       .addCase(userLogIn.fulfilled, userHandleLogInFulfilled)
       .addCase(userLogIn.rejected, userHandleLogInRejected)
-      .addCase(getCurrentUser.fulfilled, userHandleGetUserFulfilled);
+      .addCase(getCurrentUser.fulfilled, userHandleGetUserFulfilled)
+      .addCase(userLogOut.fulfilled, userLogOutFulfilled)
   },
 });
 
