@@ -42,7 +42,7 @@ export const userHandleSignUpRejected = () => {
   Notify.failure('Oops, this email is already registered, try Log In!');
 };
 
-export const userHandleLogIn = (state, { payload }) => {
+export const userHandleLogInFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.isLoggedIn = true;
   Notify.success('WELCOME!');
@@ -52,6 +52,8 @@ export const userHandleLogInRejected = () => {
   Notify.failure('Oops, your email or password is incorrect, try again!');
 };
 
+export const userHandleGetUserFulfilled = (state, { payload }) => {
+  state.currentUser = { ...payload };
+  state.isLoading = false;
+};
 // СДЕЛАТЬ ЗАПРОС НА CURRENT USER ПОСЛЕ ЛОГИНА ( ЭТО ДЛЯ ВЫВОДА ИМЕНИ HELLO, LOGOUT)
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDk5YjVjODk5MzY0ZDAwMTRlNmJlZDAiLCJpYXQiOjE2ODc3OTUxNDR9.-z0lkmfpdI4re7fwx_uTBZh44tucPO6wHEHBpqSJjFc
