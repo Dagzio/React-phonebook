@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix';
 
+
 export const fetchHandlePending = state => {
   state.contacts.isLoading = true;
 };
@@ -61,5 +62,6 @@ export const userLogOutFulfilled = state => {
   state.isLoggedIn = false;
   state.token='';
   state.currentUser=null;
-}
+};
+
 // СДЕЛАТЬ ЗАПРОС НА CURRENT USER ПОСЛЕ ЛОГИНА ( ЭТО ДЛЯ ВЫВОДА ИМЕНИ HELLO, LOGOUT)

@@ -1,12 +1,12 @@
 import Navigation from 'components/Navigation/Navigation';
 import { Headerbar, HeaderLink } from './Header.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectUserEmail } from 'redux/selectors';
+import { selectIsLoggedIn, selectCurrentUser } from 'redux/selectors';
 import { userLogOut } from 'redux/userOperations';
 
 const Header = () => {
   const stateIsLoggedIn = useSelector(selectIsLoggedIn);
-  const stateUserEmail = useSelector(selectUserEmail)
+  const stateCurrentUser = useSelector(selectCurrentUser)
   const dispatch = useDispatch();
 
   return (
@@ -15,14 +15,14 @@ const Header = () => {
 
       <HeaderLink to={'contacts'}>My Contacts</HeaderLink>
 
-      <Navigation />
+      
 
-      {stateIsLoggedIn && (
+      {stateIsLoggedIn ?  (
         <div>
-          <p>Hello, {stateUserEmail}</p>
+          <p>Hello, {stateCurrentUser.email}</p>
           <button type="button" onClick={() => dispatch(userLogOut())}>Log Out</button>
         </div>
-      )}
+      ): <Navigation />}
     </Headerbar>
   );
 };

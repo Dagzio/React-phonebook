@@ -8,4 +8,6 @@ export const selectError = state => state.contacts.contacts.error;
 
 export const selectIsLoggedIn = state => state.user.isLoggedIn;
 
-export const selectUserEmail = state => state.user.currentUser?.email;
+export const selectToken = state => state.user.token;
+
+export const selectCurrentUser = state => state.user.currentUser;
