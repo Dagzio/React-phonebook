@@ -2,7 +2,7 @@ import Navigation from 'components/Navigation/Navigation';
 import { Headerbar, HeaderLink } from './Header.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectCurrentUser } from 'redux/selectors';
-import { userLogOut } from 'redux/userOperations';
+import { userLogOut } from 'redux/user/userOperations';
 
 const Header = () => {
   const stateIsLoggedIn = useSelector(selectIsLoggedIn);

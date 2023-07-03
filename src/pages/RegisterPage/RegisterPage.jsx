@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { userSignUp } from 'redux/userOperations';
+import { userSignUp } from 'redux/user/userOperations';
 
 const RegisterPage = () => {
   const { register, handleSubmit, reset } = useForm();

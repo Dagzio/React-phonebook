@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCurrentUser, userLogIn, userLogOut, userSignUp } from './userOperations';
+import {
+  getCurrentUser,
+  userLogIn,
+  userLogOut,
+  userSignUp,
+} from './userOperations';
 import {
   userHandleLogInFulfilled,
   userHandleLogInRejected,
@@ -7,7 +12,7 @@ import {
   userHandleSignUpRejected,
   userHandleGetUserFulfilled,
   userLogOutFulfilled,
-} from './handleFunctions';
+} from '../handleFunctions';
 import userInitialState from './userInitialState';
 
 const userSlice = createSlice({
@@ -20,7 +25,7 @@ const userSlice = createSlice({
       .addCase(userLogIn.fulfilled, userHandleLogInFulfilled)
       .addCase(userLogIn.rejected, userHandleLogInRejected)
       .addCase(getCurrentUser.fulfilled, userHandleGetUserFulfilled)
-      .addCase(userLogOut.fulfilled, userLogOutFulfilled)
+      .addCase(userLogOut.fulfilled, userLogOutFulfilled);
   },
 });
 

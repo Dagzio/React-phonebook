@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { userLogIn } from 'redux/userOperations';
+import { userLogIn } from 'redux/user/userOperations';
 
 const LoginPage = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -13,11 +13,13 @@ const LoginPage = () => {
     setState(e.target.value);
   };
 
-  const onUserLogIn =() => {
-    dispatch(userLogIn({
-      email,
-      password,
-    }))
+  const onUserLogIn = () => {
+    dispatch(
+      userLogIn({
+        email,
+        password,
+      })
+    );
     reset({
       email: '',
       password: '',

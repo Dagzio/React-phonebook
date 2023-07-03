@@ -1,35 +1,36 @@
 import { Notify } from 'notiflix';
 
 export const fetchHandlePending = state => {
-  state.contacts.isLoading = true;
+  state.isLoading = true;
 };
 
 export const fetchHandleFulfilled = (state, { payload }) => {
-  state.contacts.isLoading = false;
-  state.contacts.error = null;
-  state.contacts.items = payload;
+  state.isLoading = false;
+  state.error = null;
+  state.items = payload;
 };
 
 export const fetchHandleRejected = (state, { payload }) => {
-  state.contacts.isLoading = false;
-  state.contacts.error = payload;
+  state.isLoading = false;
+  state.error = payload;
 };
 
 export const contactHandleAddFulfilled = (state, { payload }) => {
-  state.contacts.items.push({
+  state.items.push({
+    id: payload.id,
     name: payload.name,
     number: payload.number,
   });
 };
 export const contactHandleAddRejected = (state, { payload }) => {
-  state.contacts.error = payload;
+  state.error = payload;
 };
 
 export const contactHandleDelete = (state, { payload }) => {
-  const filterValueId = state.contacts.items.findIndex(
+  const filterValueId = state.items.findIndex(
     contact => contact.id === payload.id
   );
-  state.contacts.items.splice(filterValueId, 1);
+  state.items.splice(filterValueId, 1);
 };
 
 export const filterHandleUpdate = (state, { payload }) => {
@@ -47,6 +48,7 @@ export const userHandleSignUpRejected = () => {
 export const userHandleLogInFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.isLoggedIn = true;
+  state.error = null;
   Notify.success('WELCOME!');
 };
 

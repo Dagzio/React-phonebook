@@ -10,7 +10,7 @@ import {
   filterHandleUpdate,
   contactHandleAddFulfilled,
   contactHandleAddRejected,
-} from './handleFunctions';
+} from '../handleFunctions';
 
 const contactsSlice = createSlice({
   name: 'contacts',

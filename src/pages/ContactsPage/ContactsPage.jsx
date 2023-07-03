@@ -6,7 +6,7 @@ import Filter from 'components/Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from 'redux/selectors';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/contactOperations';
+import { fetchContacts } from 'redux/contacts/contactOperations';
 import { ThreeDots } from 'react-loader-spinner';
 
 const ContactsPage = () => {

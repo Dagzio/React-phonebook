@@ -1,6 +1,6 @@
 import { CurrentForm, Input, Button, Label } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactOperations';
+import { addContact } from 'redux/contacts/contactOperations';
 import { BsFillTelephonePlusFill } from 'react-icons/bs';
 import { useForm } from 'react-hook-form';
 import { selectContacts } from 'redux/selectors';
@@ -11,7 +11,7 @@ const ContactForm = () => {
   const stateContacts = useSelector(selectContacts);
 
   const onSubmitForm = contactInfo => {
-    const duplicateName = stateContacts?.find(
+    const duplicateName = stateContacts.find(
       contact => contact.name === contactInfo.name
     );
     duplicateName
