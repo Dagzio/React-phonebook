@@ -11,7 +11,7 @@ const ContactForm = () => {
   const stateContacts = useSelector(selectContacts);
 
   const onSubmitForm = contactInfo => {
-    const duplicateName = stateContacts.find(
+    const duplicateName = stateContacts?.find(
       contact => contact.name === contactInfo.name
     );
     duplicateName

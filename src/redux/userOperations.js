@@ -1,29 +1,33 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const instance = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com/users',
-});
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com'
 
 export const setToken = token => {
-  instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+const clearToken = () => {
+  axios.defaults.headers.common.Authorization = '';
+}
+
 const LogIn = async userData => {
-  const response = await instance.post('/login', userData);
+  const response = await axios.post('users/login', userData);
   setToken(response.data.token);
   return response;
 };
 
 export const userSignUp = createAsyncThunk('users/signup', async userData => {
-  return await instance.post('/signup', userData);
+ const response = await axios.post('users/signup', userData);
+ setToken(response.data.token);
+  return response.data;
 });
 
 export const getCurrentUser = createAsyncThunk(
   'users/current',
   async (_, { rejectWithValue, dispatch }) => {
     try {
-      const response = await instance.get('/current');
+      const response = await axios.get('users/current');
       return response;
     } catch (error) {
       dispatch(userLogOut());
@@ -43,6 +47,9 @@ export const userLogIn = createAsyncThunk(
 );
 
 export const userLogOut = createAsyncThunk('users/logout', async () => {
-  return await instance.post('/logout');
+  
+  const result = await axios.post('users/logout');
+  clearToken();
+  return result;
 });
 

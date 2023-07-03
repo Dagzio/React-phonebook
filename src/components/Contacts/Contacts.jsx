@@ -14,7 +14,7 @@ const Contacts = () => {
 
   return (
     <div>
-      {stateContacts.length > 0 ? (
+      {stateContacts?.length > 0 ? (
         <ContactList>
           {filteredContacts.map(contact => {
             return (
