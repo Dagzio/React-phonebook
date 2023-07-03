@@ -19,7 +19,7 @@ const ContactForm = () => {
       : dispatch(addContact(contactInfo));
     reset({
       name: '',
-      phone: '',
+      number: '',
     });
   };
 
@@ -41,8 +41,8 @@ const ContactForm = () => {
         Number:
         <Input
           type="tel"
-          {...register('phone')}
-          id="phone"
+          {...register('number')}
+          id="number"
           placeholder="Starts with '+'"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

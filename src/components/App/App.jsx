@@ -1,4 +1,5 @@
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import PublicRoute from 'components/PublicRoute/PublicRoute';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -28,7 +29,9 @@ const App = () => {
           path="register"
           element={
             <Suspense>
-              <RegisterPage />
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
             </Suspense>
           }
         />
@@ -36,7 +39,9 @@ const App = () => {
           path="login"
           element={
             <Suspense>
-              <LoginPage />
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
             </Suspense>
           }
         />
@@ -45,7 +50,7 @@ const App = () => {
           element={
             <Suspense>
               <PrivateRoute>
-              <ContactsPage />
+                <ContactsPage />
               </PrivateRoute>
             </Suspense>
           }

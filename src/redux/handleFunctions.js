@@ -1,6 +1,5 @@
 import { Notify } from 'notiflix';
 
-
 export const fetchHandlePending = state => {
   state.contacts.isLoading = true;
 };
@@ -16,12 +15,14 @@ export const fetchHandleRejected = (state, { payload }) => {
   state.contacts.error = payload;
 };
 
-export const contactHandleAdd = (state, { payload }) => {
+export const contactHandleAddFulfilled = (state, { payload }) => {
   state.contacts.items.push({
-    id: payload.id,
     name: payload.name,
-    phone: payload.phone,
+    number: payload.number,
   });
+};
+export const contactHandleAddRejected = (state, { payload }) => {
+  state.contacts.error = payload;
 };
 
 export const contactHandleDelete = (state, { payload }) => {
@@ -60,8 +61,6 @@ export const userHandleGetUserFulfilled = (state, { payload }) => {
 
 export const userLogOutFulfilled = state => {
   state.isLoggedIn = false;
-  state.token='';
-  state.currentUser=null;
+  state.token = '';
+  state.currentUser = null;
 };
-
-// СДЕЛАТЬ ЗАПРОС НА CURRENT USER ПОСЛЕ ЛОГИНА ( ЭТО ДЛЯ ВЫВОДА ИМЕНИ HELLO, LOGOUT)

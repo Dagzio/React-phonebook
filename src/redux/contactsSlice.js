@@ -6,9 +6,10 @@ import {
   fetchHandlePending,
   fetchHandleFulfilled,
   fetchHandleRejected,
-  contactHandleAdd,
   contactHandleDelete,
   filterHandleUpdate,
+  contactHandleAddFulfilled,
+  contactHandleAddRejected,
 } from './handleFunctions';
 
 const contactsSlice = createSlice({
@@ -19,7 +20,8 @@ const contactsSlice = createSlice({
       .addCase(fetchContacts.pending, fetchHandlePending)
       .addCase(fetchContacts.fulfilled, fetchHandleFulfilled)
       .addCase(fetchContacts.rejected, fetchHandleRejected)
-      .addCase(addContact.fulfilled, contactHandleAdd)
+      .addCase(addContact.fulfilled, contactHandleAddFulfilled)
+      .addCase(addContact.rejected, contactHandleAddRejected)
       .addCase(deleteContact.fulfilled, contactHandleDelete)
       .addCase(onUpdateFilterValue, filterHandleUpdate);
   },
