@@ -63,6 +63,6 @@ export const userHandleGetUserFulfilled = (state, { payload }) => {
 
 export const userLogOutFulfilled = state => {
   state.isLoggedIn = false;
-  state.token = '';
+  state.token = null;
   state.currentUser = null;
 };
