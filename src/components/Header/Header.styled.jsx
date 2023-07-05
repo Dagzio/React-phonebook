@@ -7,6 +7,7 @@ export const Headerbar = styled.header`
   position: sticky;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 64px;
   padding: 12px 24px;
   margin-bottom: 16px;
@@ -26,4 +27,12 @@ export const HeaderLink = styled(NavLink)`
   &.active {
     color: #d88d02;
   }
+`;
+
+export const CurrentUser = styled.div`
+  display: flex;
+`;
+
+export const UserName = styled.p`
+  margin-right: 4px;
 `;

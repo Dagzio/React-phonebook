@@ -37,8 +37,10 @@ export const filterHandleUpdate = (state, { payload }) => {
   state.filter = payload;
 };
 
-export const userHandleSignUpFulfilled = () => {
-  Notify.success('You have been registered and can now Log in to your account');
+export const userHandleSignUpFulfilled = (state, { payload }) => {
+  state.token = payload.token;
+  state.isLoggedIn = true;
+  Notify.success('You have been registered successful');
 };
 
 export const userHandleSignUpRejected = () => {
@@ -57,7 +59,7 @@ export const userHandleLogInRejected = () => {
 };
 
 export const userHandleGetUserFulfilled = (state, { payload }) => {
-  state.currentUser = { ...payload.data };
+  state.currentUser = payload.data;
   state.isLoading = false;
 };
 

@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Main } from './SharedLayout.styled';
+import { Container, Main } from './SharedLayout.styled';
 import Header from 'components/Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser, selectToken } from 'redux/selectors';
@@ -20,14 +20,14 @@ const SharedLayout = () => {
   }, [dispatch, stateCurrentUser, userToken]);
 
   return (
-    <>
+    <Container>
       <Header />
       <Main>
         <Suspense>
           <Outlet />
         </Suspense>
       </Main>
-    </>
+    </Container>
   );
 };
 
