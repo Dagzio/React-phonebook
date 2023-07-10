@@ -1,5 +1,11 @@
 import Navigation from 'components/Navigation/Navigation';
-import { CurrentUser, Headerbar, HeaderLink, UserName } from './Header.styled';
+import {
+  CurrentUser,
+  Headerbar,
+  HeaderLink,
+  LogOut,
+  UserName,
+} from './Header.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectCurrentUser } from 'redux/selectors';
 import { userLogOut } from 'redux/user/userOperations';
@@ -19,9 +25,9 @@ const Header = () => {
       {stateIsLoggedIn ? (
         <CurrentUser>
           <UserName>Hello, {stateCurrentUser?.name}</UserName>
-          <button type="button" onClick={() => dispatch(userLogOut())}>
+          <LogOut type="button" onClick={() => dispatch(userLogOut())}>
             Log Out
-          </button>
+          </LogOut>
         </CurrentUser>
       ) : (
         <Navigation />

@@ -35,4 +35,24 @@ export const CurrentUser = styled.div`
 
 export const UserName = styled.p`
   margin-right: 4px;
+  font-weight: 600;
+  margin-right: 12px;
+`;
+
+export const LogOut = styled.button`
+  height: 28px;
+  width: 64px;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #d88d02;
+  color: #df960e;
+  font-weight: 600;
+  &:hover {
+    background-color: #f0eeee;
+  }
+  &:active {
+    box-shadow: 1px 1px 1px 0px #6f6f6f, inset 4px 4px 4px 0px #bdbdbd,
+      5px 5px 4px -2px rgba(0, 0, 0, 0);
+  }
 `;

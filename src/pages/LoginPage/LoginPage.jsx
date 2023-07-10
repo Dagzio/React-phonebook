@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { userLogIn } from 'redux/user/userOperations';
+import { LogIn, LogInForm, LogInInput, LogInLabel } from './LoginPage.styled';
 
 const LoginPage = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -27,33 +28,33 @@ const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onUserLogIn)}>
-      <label>
-        Email:
-        <input
+    <LogInForm onSubmit={handleSubmit(onUserLogIn)}>
+      <LogInLabel>
+        Email
+        <LogInInput
           type="email"
           {...register('email')}
           onChange={handleChange(setEmail)}
           value={email}
           id="userEmail"
           required
-        ></input>
-      </label>
+        ></LogInInput>
+      </LogInLabel>
 
-      <label>
-        Password:
-        <input
+      <LogInLabel>
+        Password
+        <LogInInput
           type="password"
           {...register('password')}
           onChange={handleChange(setPassword)}
           value={password}
           id="userPassword"
           required
-        ></input>
-      </label>
+        ></LogInInput>
+      </LogInLabel>
 
-      <button type="submit">Log In</button>
-    </form>
+      <LogIn type="submit">Log In</LogIn>
+    </LogInForm>
   );
 };
 

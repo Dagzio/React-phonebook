@@ -3,11 +3,12 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { userSignUp } from 'redux/user/userOperations';
 import {
+  RegisterLabel,
   RegisterForm,
   SignUp,
-  UserEmail,
-  UserName,
-  UserPassword,
+  EmailInput,
+  NameInput,
+  PasswordInput,
 } from './RegisterPage.styled';
 
 const RegisterPage = () => {
@@ -32,9 +33,9 @@ const RegisterPage = () => {
 
   return (
     <RegisterForm onSubmit={handleSubmit(onUserFormSubmit)}>
-      <label>
-        User Name:
-        <UserName
+      <RegisterLabel>
+        Name
+        <NameInput
           type="text"
           {...register('name')}
           onChange={handleChange(setName)}
@@ -43,32 +44,32 @@ const RegisterPage = () => {
           placeholder="For example: Jacob Mercer"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
-        ></UserName>
-      </label>
+        ></NameInput>
+      </RegisterLabel>
 
-      <label>
-        Email:
-        <UserEmail
+      <RegisterLabel>
+        Email
+        <EmailInput
           type="email"
           {...register('email')}
           onChange={handleChange(setEmail)}
           value={email}
           id="userEmail"
           required
-        ></UserEmail>
-      </label>
+        ></EmailInput>
+      </RegisterLabel>
 
-      <label>
-        Password:
-        <UserPassword
+      <RegisterLabel>
+        Password
+        <PasswordInput
           type="password"
           {...register('password')}
           onChange={handleChange(setPassword)}
           value={password}
           id="userPassword"
           required
-        ></UserPassword>
-      </label>
+        ></PasswordInput>
+      </RegisterLabel>
 
       <SignUp type="submit">Sign Up</SignUp>
     </RegisterForm>
