@@ -41,7 +41,7 @@ export const UserName = styled.p`
 
 export const LogOut = styled.button`
   height: 28px;
-  width: 64px;
+  width: 80px;
   background-color: #ffffff;
   cursor: pointer;
   border-radius: 8px;

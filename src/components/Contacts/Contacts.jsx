@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ContactList, Button } from './Contacts.styled';
+import { ContactList, Button, Text, ContactName } from './Contacts.styled';
 import { selectContacts, selectFilterValue } from 'redux/selectors';
 import { deleteContact } from 'redux/contacts/contactOperations';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
@@ -17,19 +17,19 @@ const Contacts = () => {
       {stateContacts.length > 0 ? (
         <ContactList>
           {filteredContacts.map(contact => (
-            <li key={contact.id}>
+            <ContactName key={contact.id}>
               {contact.name} : {contact.number}
               <Button
                 type="button"
                 onClick={() => dispatch(deleteContact(contact))}
               >
-                <RiDeleteBack2Fill color="darkblue" />
+                <RiDeleteBack2Fill color="green" size="16px" />
               </Button>
-            </li>
+            </ContactName>
           ))}
         </ContactList>
       ) : (
-        <strong>There are no contacts in your phonebook yet.</strong>
+        <Text>There are no contacts in your phonebook yet.</Text>
       )}
     </div>
   );
